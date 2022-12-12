@@ -16,18 +16,23 @@ class Evenement
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank (message:"titre is required")]
     #[ORM\Column(length: 255)]
     private ?string $titre = null;
 
+    #[Assert\NotBlank (message:"description is required")]
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
+    #[Assert\NotBlank (message:"date is required")]
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_debut = null;
 
+    #[Assert\NotBlank (message:"date is required")]
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_fin = null;
 
+    #[Assert\NotBlank (message:"lieu is required")]
     #[ORM\Column(length: 255)]
     private ?string $lieu = null;
 

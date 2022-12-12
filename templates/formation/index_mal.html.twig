@@ -1,0 +1,51 @@
+{# {% extends 'RRH.html.twig' %} #}
+
+{% block title %}Formation index{% endblock %}
+
+{% block body %}
+
+
+
+    <h1>Liste des formations</h1>
+    <h5>Le nombre de formation disponibles : {{ formations |length }}</h5>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>titre</th>
+            <th>description</th>
+            <th>prix</th>
+            <th>date_debut</th>
+            <th>date_fin</th>
+
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for formation in formations %}
+            <tr>
+                <td>{{ formation.id }}</td>
+                <td>{{ formation.titre }}</td>
+                <td>{{ formation.description }}</td>
+                <td>{{ formation.prix }}</td>
+                <td>{{ formation.date_debut ? formation.date_debut|date('Y-m-d') : '' }}</td>
+                <td>{{ formation.date_fin ? formation.date_fin|date('Y-m-d') : '' }}</td>
+
+
+                <td>
+                    <a href="{{ path('app_formation_show', {'id': formation.idFor}) }}">show</a>
+                    <a href="{{ path('app_formation_edit', {'id': formation.idFor}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_formation_new') }}">Create new</a>
+
+{% endblock %}

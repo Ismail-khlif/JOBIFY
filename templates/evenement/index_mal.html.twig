@@ -1,0 +1,52 @@
+{# {% extends 'RRH.html.twig' %} #}
+
+{% block title %}Evenement index{% endblock %}
+
+{% block body %}
+
+
+
+    <h1>Liste des événements</h1>
+    <h5>Le nombre de événements disponibles : {{ evenements |length }}</h5>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>titre</th>
+            <th>description</th>
+            <th>date_debut</th>
+            <th>date_fin</th>
+            <th>lieu</th>
+
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+            <tr>
+                <td>{{ evenement.id }}</td>
+                <td>{{ evenement.titre }}</td>
+                <td>{{ evenement.description }}</td>
+                <td>{{ evenement.date_debut ? formation.date_debut|date('Y-m-d') : '' }}</td>
+                <td>{{ evenement.date_fin ? formation.date_fin|date('Y-m-d') : '' }}</td>
+                <td>{{ evenement.lieu }}</td>
+
+
+
+                <td>
+                    <a href="{{ path('app_evenement_show', {'id': evenement.id}) }}">show</a>
+                    <a href="{{ path('app_evenement_edit', {'id': evenement.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_evenement_new') }}">Create new</a>
+
+{% endblock %}

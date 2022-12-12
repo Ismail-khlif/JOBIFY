@@ -1,0 +1,45 @@
+{# {% extends 'RRH.html.twig' %} #}
+
+{% block title %}Event{% endblock %}
+
+{% block body %}
+    <h1>Evenement</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ evenement.id }}</td>
+        </tr>
+        <tr>
+            <th>titre</th>
+            <td>{{ evenement.titre }}</td>
+        </tr>
+        <tr>
+            <th>description</th>
+            <td>{{ evenement.description }}</td>
+        </tr>
+
+        <tr>
+            <th>date debut</th>
+            <td>{{ evenement.date_debut ? evenement.date_debut|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>date fin</th>
+            <td>{{ evenement.date_fin ? evenement.date_fin|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>lieu</th>
+            <td>{{ evenement.lieu }}</td>
+        </tr>
+
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_evenement_index') }}">back to list</a>
+
+    <a href="{{ path('app_evenement_edit', {'id': evenement.id}) }}">edit</a>
+
+    {{ include('evenement/_delete_form.html.twig') }}
+{% endblock %}

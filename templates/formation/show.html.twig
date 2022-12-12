@@ -1,0 +1,44 @@
+{# {% extends 'RRH.html.twig' %} #}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+    <h1>Formation</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ formation.id }}</td>
+        </tr>
+        <tr>
+            <th>titre</th>
+            <td>{{ formation.titre }}</td>
+        </tr>
+        <tr>
+            <th>description</th>
+            <td>{{ formation.description }}</td>
+        </tr>
+        <tr>
+            <th>prix</th>
+            <td>{{ formation.prix }}</td>
+        </tr>
+        <tr>
+            <th>date debut</th>
+            <td>{{ formation.date_debut ? formation.date_debut|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>date fin</th>
+            <td>{{ formation.date_fin ? formation.date_fin|date('Y-m-d') : '' }}</td>
+        </tr>
+
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_formation_index') }}">back to list</a>
+
+    <a href="{{ path('app_formation_edit', {'id': formation.id}) }}">edit</a>
+
+    {{ include('formation/_delete_form.html.twig') }}
+{% endblock %}

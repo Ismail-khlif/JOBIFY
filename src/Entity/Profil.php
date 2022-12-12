@@ -14,6 +14,7 @@ class Profil
     private ?int $id = null;
 
     #[ORM\Column]
+    #[Assert\NotBlank (message:"phone is required")]
     private ?int $phone = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]

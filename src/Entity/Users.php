@@ -15,24 +15,31 @@ class Users
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank (message:"nom is required")]
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
+    #[Assert\NotBlank (message:"prenom is required")]
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
+    #[Assert\NotBlank (message:"username is required")]
     #[ORM\Column(length: 255)]
     private ?string $username = null;
 
+    #[Assert\NotBlank (message:"password is required")]
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
+    #[Assert\NotBlank (message:"carrer is required")]
     #[ORM\Column(length: 255)]
     private ?string $role = null;
 
+    #[Assert\NotBlank (message:"email is required")]
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
+    #[Assert\NotBlank (message:"age is required")]
     #[ORM\Column]
     private ?int $age = null;
 
@@ -161,7 +168,10 @@ class Users
     {
         return $this->reclamations;
     }
-
+/*
+    public function __toString() {
+        return $this->titre;
+    }*/
     public function addReclamation(Reclamation $reclamation): self
     {
         if (!$this->reclamations->contains($reclamation)) {
