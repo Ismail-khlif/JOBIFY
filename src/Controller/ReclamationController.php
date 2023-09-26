@@ -21,7 +21,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class ReclamationController extends AbstractController
 {
-/*
+
     //affichage reclamation liste back-office
     #[Route('/', name: 'app_reclamation_index', methods: ['GET'])]
     public function index(EntityManagerInterface $entityManager): Response
@@ -104,5 +104,5 @@ class ReclamationController extends AbstractController
             'reclamation' => $reclamation,
         ]);
     }
-*/
+
 }

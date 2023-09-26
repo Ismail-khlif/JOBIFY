@@ -6,7 +6,7 @@ use App\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: UsersRepository::class)]
 class Users
 {
@@ -168,10 +168,7 @@ class Users
     {
         return $this->reclamations;
     }
-/*
-    public function __toString() {
-        return $this->titre;
-    }*/
+
     public function addReclamation(Reclamation $reclamation): self
     {
         if (!$this->reclamations->contains($reclamation)) {
